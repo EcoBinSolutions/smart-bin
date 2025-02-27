@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -127,11 +128,31 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             overflow: hidden;
             position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .brochure-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .animation-container {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
         
         .solar-animation {
             position: relative;
             height: 50px;
+            width: 100%;
+            max-width: 180px;
         }
         
         .solar-panel {
@@ -152,6 +173,7 @@
             top: -10px;
             left: 20px;
             box-shadow: 0 0 20px #ffcc00;
+            transition: left 4s ease-in-out;
         }
         
         .energy-beam {
@@ -165,6 +187,7 @@
             left: 25px;
             transform-origin: top;
             animation: beamPulse 3s infinite;
+            transition: left 4s ease-in-out;
         }
         
         @keyframes beamPulse {
@@ -172,6 +195,107 @@
             50% { opacity: 0.7; }
         }
         
+        .brochure-bin {
+            width: 80px;
+            height: 120px;
+            background: #f5f5f5;
+            border: 2px solid #ddd;
+            border-radius: 0 0 8px 8px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        
+        .brochure-lid {
+            width: 80px;
+            height: 15px;
+            background: var(--primary-color);
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.5s ease;
+            border-radius: 8px 8px 0 0;
+            z-index: 2;
+        }
+        
+        .brochure-waste {
+            width: 100%;
+            height: 10%;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: 0;
+            transition: height 3s ease;
+        }
+        
+        .brochure-sensor {
+            width: 12px;
+            height: 12px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+            transition: all 0.5s ease;
+        }
+        
+        .level-indicator {
+            position: absolute;
+            right: 8px;
+            height: 70%;
+            width: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            top: 15%;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .level-marker {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            position: absolute;
+            left: -2px;
+            transform: translateX(-50%);
+        }
+        
+        .battery-container {
+            width: 80px;
+            height: 30px;
+            background: rgba(240, 240, 240, 0.8);
+            border-radius: 15px;
+            margin: 10px auto 0;
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+            border: 1px solid #ddd;
+            position: relative;
+        }
+        
+        .battery-indicator {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 1.5s ease-in-out;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            left: 5px;
+        }
+        
+        .feature-list {
+            text-align: left;
+            margin-top: 15px;
+        }
+        
+        .feature-list li {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
         /* Dark mode styles */
         @media (prefers-color-scheme: dark) {
             body {
@@ -291,90 +415,90 @@
             
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
                 <!-- Brochure Page 1: Auto Open Lid -->
-                <div class="brochure-page p-4">
+                <div class="brochure-page">
                     <div class="pb-4 border-b border-gray-200">
                         <h3 class="text-xl font-semibold text-primary mb-2">Touchless Open System</h3>
                     </div>
-                    <div class="p-4 flex flex-col items-center">
-                        <div class="mb-4 relative w-full h-40 flex justify-center items-center">
-                            <div class="w-24 h-4 bg-primary rounded-t-lg absolute top-4 transition-all duration-500" id="brochureLid"></div>
-                            <div class="w-24 h-32 bg-gray-200 border-2 border-gray-300 rounded-b-lg mt-12">
-                                <div class="w-4 h-4 rounded-full bg-red-500 absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2" id="brochureSensor"></div>
-                            </div>
-                            <div class="absolute top-10 left-1/2 transform -translate-x-1/2 w-16 h-16">
-                                <svg class="w-full h-full text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
-                                </svg>
+                    <div class="brochure-content p-4">
+                        <div class="animation-container">
+                            <div class="relative">
+                                <div class="brochure-lid" id="brochureLid"></div>
+                                <div class="brochure-sensor" id="brochureSensor"></div>
+                                <div class="brochure-bin">
+                                    <div class="flex items-center justify-center h-full">
+                                        <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="text-left">
+                        <div class="feature-list">
                             <ul class="list-disc ml-6 text-gray-700 dark:text-gray-300">
-                                <li class="mb-2">Motion sensors detect movement up to 20cm away</li>
-                                <li class="mb-2">Lid opens automatically within 0.5 seconds</li>
-                                <li class="mb-2">Stays open until motion stops</li>
-                                <li class="mb-2">Hygienic & convenient - perfect for kitchens and bathrooms</li>
+                                <li>Motion sensors detect movement up to 20cm away</li>
+                                <li>Lid opens automatically within 0.5 seconds</li>
+                                <li>Stays open until motion stops</li>
+                                <li>Hygienic & convenient - perfect for kitchens and bathrooms</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Brochure Page 2: Waste Detection -->
-                <div class="brochure-page p-4">
+                <div class="brochure-page">
                     <div class="pb-4 border-b border-gray-200">
                         <h3 class="text-xl font-semibold text-primary mb-2">Smart Waste Detection</h3>
                     </div>
-                    <div class="p-4 flex flex-col items-center">
-                        <div class="mb-4 relative w-full h-40 flex justify-center items-center">
-                            <div class="w-24 h-32 bg-gray-200 border-2 border-gray-300 rounded-lg overflow-hidden">
-                                <div class="w-full h-2/3 bg-primary absolute bottom-0 transition-all duration-500" id="brochureWaste"></div>
-                                <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-                                    <div class="h-full w-4 relative ml-16 bg-white bg-opacity-20">
-                                        <div class="absolute top-1/4 w-3 h-3 rounded-full bg-yellow-400 -left-1 border-2 border-white"></div>
-                                        <div class="absolute top-1/2 w-3 h-3 rounded-full bg-orange-400 -left-1 border-2 border-white"></div>
-                                        <div class="absolute top-3/4 w-3 h-3 rounded-full bg-red-500 -left-1 border-2 border-white"></div>
-                                    </div>
+                    <div class="brochure-content p-4">
+                        <div class="animation-container">
+                            <div class="brochure-bin">
+                                <div class="brochure-waste" id="brochureWaste"></div>
+                                <div class="level-indicator">
+                                    <div class="level-marker" style="top: 20%; background-color: #ffd700;"></div>
+                                    <div class="level-marker" style="top: 50%; background-color: #ffa500;"></div>
+                                    <div class="level-marker" style="top: 80%; background-color: #ff0000;"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="text-left">
+                        <div class="feature-list">
                             <ul class="list-disc ml-6 text-gray-700 dark:text-gray-300">
-                                <li class="mb-2">Ultrasonic sensors monitor fill level in real-time</li>
-                                <li class="mb-2">Color-coded indicators show waste level status</li>
-                                <li class="mb-2">Smart notifications when bin reaches 80% capacity</li>
-                                <li class="mb-2">Prevents overflow and maintains hygiene</li>
+                                <li>Ultrasonic sensors monitor fill level in real-time</li>
+                                <li>Color-coded indicators show waste level status</li>
+                                <li>Smart notifications when bin reaches 80% capacity</li>
+                                <li>Prevents overflow and maintains hygiene</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Brochure Page 3: Solar Charging -->
-                <div class="brochure-page p-4">
+                <div class="brochure-page">
                     <div class="pb-4 border-b border-gray-200">
                         <h3 class="text-xl font-semibold text-primary mb-2">Solar Powered System</h3>
                     </div>
-                    <div class="p-4 flex flex-col items-center">
-                        <div class="mb-4 relative w-full h-40 flex flex-col justify-center items-center">
-                            <div class="solar-animation w-full">
-                                <div class="solar-panel">
-                                    <div class="sun" id="brochureSun"></div>
-                                    <div class="energy-beam"></div>
+                    <div class="brochure-content p-4">
+                        <div class="animation-container">
+                            <div class="flex flex-col items-center w-full">
+                                <div class="solar-animation mb-4">
+                                    <div class="solar-panel">
+                                        <div class="sun" id="brochureSun"></div>
+                                        <div class="energy-beam" id="energyBeam"></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="w-24 h-32 bg-gray-200 border-2 border-gray-300 rounded-b-lg mt-4">
-                                <div class="w-full h-12 bg-green-100 absolute top-0 flex items-center justify-center">
-                                    <div class="w-14 h-6 bg-green-500 rounded-full relative flex items-center px-1">
-                                        <div class="w-4 h-4 bg-white rounded-full absolute transition-all duration-1000" id="batteryIndicator"></div>
-                                        <div class="text-white text-xs absolute right-2">ON</div>
+                                <div class="brochure-bin" style="height: 80px;">
+                                    <div class="battery-container">
+                                        <div class="battery-indicator" id="batteryIndicator"></div>
+                                        <div class="text-xs font-semibold absolute right-3 text-green-700">ON</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="text-left">
+                        <div class="feature-list">
                             <ul class="list-disc ml-6 text-gray-700 dark:text-gray-300">
-                                <li class="mb-2">High-efficiency solar panel charges throughout the day</li>
-                                <li class="mb-2">Integrated 2000mAh rechargeable battery</li>
-                                <li class="mb-2">Up to 3 months operation on a single charge</li>
-                                <li class="mb-2">Eco-friendly design saves electricity and reduces carbon footprint</li>
+                                <li>High-efficiency solar panel charges throughout the day</li>
+                                <li>Integrated 2000mAh rechargeable battery</li>
+                                <li>Up to 3 months operation on a single charge</li>
+                                <li>Eco-friendly design reduces carbon footprint</li>
                             </ul>
                         </div>
                     </div>
@@ -405,7 +529,7 @@
                               class="w-full px-4 py-2 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white"></textarea>
                 </div>
                 
-                <button type="submit" class="w-full bg-primary hover:bg-primaryDark text-black font-medium py-3 px-6 rounded-lg transition duration-300">
+                <button type="submit" class="w-full bg-primary hover:bg-primaryDark text-white font-medium py-3 px-6 rounded-lg transition duration-300">
                     Send Message
                 </button>
             </form>
@@ -531,53 +655,94 @@
             sensor.style.animation = "glow 2s infinite";
         }, 5000);
 
-        // Brochure animations
-        let brochureLidOpen = false;
-        const brochureLid = document.getElementById("brochureLid");
-        const brochureSensor = document.getElementById("brochureSensor");
-        const brochureWaste = document.getElementById("brochureWaste");
-        const brochureSun = document.getElementById("brochureSun");
-        const batteryIndicator = document.getElementById("batteryIndicator");
+        // Initialize brochure elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const brochureLid = document.getElementById("brochureLid");
+            const brochureSensor = document.getElementById("brochureSensor");
+            const brochureWaste = document.getElementById("brochureWaste");
+            const brochureSun = document.getElementById("brochureSun");
+            const batteryIndicator = document.getElementById("batteryIndicator");
+            const energyBeam = document.getElementById("energyBeam");
 
-        // Animate the brochure elements
-        setInterval(() => {
-            // Animate lid
-            if (brochureLidOpen) {
-                brochureLid.style.transform = "translate(-50%, -100%)";
-                brochureSensor.style.backgroundColor = "#ffff00";
-                brochureSensor.style.boxShadow = "0 0 10px rgba(255, 255, 0, 0.7)";
-                setTimeout(() => {
-                    brochureLidOpen = false;
-                }, 2000);
-            } else {
-                brochureLid.style.transform = "translate(-50%, 0)";
-                brochureSensor.style.backgroundColor = "#ff0000";
-                brochureSensor.style.boxShadow = "0 0 5px rgba(255, 0, 0, 0.5)";
-                setTimeout(() => {
-                    brochureLidOpen = true;
-                }, 2000);
-            }
-
-            // Animate waste level
-            const currentHeight = parseFloat(brochureWaste.style.height) || 0;
-            if (currentHeight <= 10) {
-                brochureWaste.style.height = "60%";
-            } else if (currentHeight >= 60) {
-                brochureWaste.style.height = "10%";
-            }
-
-            // Animate sun
-            const currentLeft = parseInt(brochureSun.style.left) || 20;
-            if (currentLeft <= 20) {
-                brochureSun.style.left = "120px";
-            } else if (currentLeft >= 120) {
-                brochureSun.style.left = "20px";
-            }
-
-            // Animate battery indicator
-            batteryIndicator.style.transform = batteryIndicator.style.transform === "translateX(20px)" ? "translateX(0)" : "translateX(20px)";
+            // Set initial states
+            brochureWaste.style.height = "10%";
+            brochureSun.style.left = "20px";
+            batteryIndicator.style.transform = "translateX(0)";
             
-        }, 4000);
+            // Setup animations
+            let lidOpen = false;
+            let wasteIncreasing = true;
+            let sunMovingRight = true;
+            let batteryOn = false;
+            
+            // Lid and sensor animation
+            setInterval(() => {
+                if (lidOpen) {
+                    brochureLid.style.transform = "translate(-50%, -100%)";
+                    brochureSensor.style.backgroundColor = "#ffff00";
+                    brochureSensor.style.boxShadow = "0 0 10px rgba(255, 255, 0, 0.7)";
+                    setTimeout(() => {
+                        lidOpen = false;
+                    }, 2000);
+                } else {
+                    brochureLid.style.transform = "translate(-50%, 0)";
+                    brochureSensor.style.backgroundColor = "#ff0000";
+                    brochureSensor.style.boxShadow = "0 0 5px rgba(255, 0, 0, 0.5)";
+                    setTimeout(() => {
+                        lidOpen = true;
+                    }, 2000);
+                }
+            }, 4000);
+            
+            // Waste level animation
+            setInterval(() => {
+                const currentHeight = parseInt(brochureWaste.style.height) || 10;
+                if (wasteIncreasing) {
+                    if (currentHeight < 75) {
+                        brochureWaste.style.height = (currentHeight + 15) + "%";
+                    } else {
+                        wasteIncreasing = false;
+                    }
+                } else {
+                    if (currentHeight > 10) {
+                        brochureWaste.style.height = (currentHeight - 15) + "%";
+                    } else {
+                        wasteIncreasing = true;
+                    }
+                }
+            }, 3000);
+            
+            // Sun and energy beam animation
+            setInterval(() => {
+                const currentLeft = parseInt(brochureSun.style.left) || 20;
+                if (sunMovingRight) {
+                    if (currentLeft < 140) {
+                        brochureSun.style.left = (currentLeft + 20) + "px";
+                        energyBeam.style.left = (currentLeft + 25) + "px";
+                    } else {
+                        sunMovingRight = false;
+                    }
+                } else {
+                    if (currentLeft > 20) {
+                        brochureSun.style.left = (currentLeft - 20) + "px";
+                        energyBeam.style.left = (currentLeft - 15) + "px";
+                    } else {
+                        sunMovingRight = true;
+                    }
+                }
+            }, 1500);
+            
+            // Battery indicator animation
+            setInterval(() => {
+                if (batteryOn) {
+                    batteryIndicator.style.transform = "translateX(0)";
+                    batteryOn = false;
+                } else {
+                    batteryIndicator.style.transform = "translateX(40px)";
+                    batteryOn = true;
+                }
+            }, 2000);
+        });
     </script>
 </body>
 </html>
