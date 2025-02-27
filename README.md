@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'media',
+            lightMode: 'media',
             theme: {
                 extend: {
                     colors: {
