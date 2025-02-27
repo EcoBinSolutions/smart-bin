@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            lightMode: 'media',
+            darkMode: 'media',
             theme: {
                 extend: {
                     colors: {
@@ -23,7 +23,7 @@
         :root {
             --primary-color: #28a745;
             --primary-dark: #218838;
-            --secondary-color: #e3f2fd;
+            --secondary-color: black;
         }
         
         body {
@@ -123,24 +123,24 @@
         /* Dark mode styles */
         @media (prefers-color-scheme: dark) {
             body {
-                background-color: #181818;
-                color: #fff;
+                background-color: white;
+                color: black;
             }
             
             .feature {
-                background-color: #2a2a2a;
-                color: #f8f9fa;
+                background-color: white;
+                color: black;
             }
             
             .bin {
-                background: #555;
-                border-color: #666;
+                background: white;
+                border-color: green;
             }
             
             input, textarea {
-                background-color: #333;
-                color: #fff;
-                border-color: #555;
+                background-color: white;
+                color: black;
+                border-color: green;
             }
         }
     </style>
