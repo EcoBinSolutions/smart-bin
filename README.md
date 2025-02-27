@@ -406,7 +406,7 @@
                               class="w-full px-4 py-2 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white"></textarea>
                 </div>
                 
-                <button type="submit" class="w-full bg-primary hover:bg-primaryDark text-white font-medium py-3 px-6 rounded-lg transition duration-300">
+                <button type="submit" class="w-full bg-primary hover:bg-primaryDark text-black font-medium py-3 px-6 rounded-lg transition duration-300">
                     Send Message
                 </button>
             </form>
