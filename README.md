@@ -418,7 +418,7 @@
 
     <footer class="bg-gray-100 dark:bg-gray-800 mt-12 py-8 px-4">
         <div class="container mx-auto text-center">
-            <p class="text-gray-700 dark:text-gray-300">© 2023 EcoBin Solutions. All rights reserved.</p>
+            <p class="text-gray-700 dark:text-gray-300">© 2025 EcoBin Solutions. All rights reserved.</p>
             <div class="flex justify-center space-x-4 mt-4">
                 <a href="#" class="text-primary hover:text-primaryDark dark:text-green-400 dark:hover:text-green-300">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
