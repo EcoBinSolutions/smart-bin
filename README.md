@@ -197,7 +197,7 @@
         
         .brochure-bin {
             width: 80px;
-            height: 120px;
+            height: 100px;
             background: #f5f5f5;
             border: 2px solid #ddd;
             border-radius: 0 0 8px 8px;
@@ -214,7 +214,7 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            transition: all 0.5s ease;
+            transition: all 0.6s ease;
             border-radius: 8px 8px 0 0;
             z-index: 2;
         }
@@ -437,7 +437,7 @@
                             <ul class="list-disc ml-6 text-gray-700 dark:text-gray-300">
                                 <li>Motion sensors detect movement up to 20cm away</li>
                                 <li>Lid opens automatically within 0.5 seconds</li>
-                                <li>Stays open until motion stops</li>
+                                <li>Stays open for 10 seconds, ensuring the user enough time to throw the waste</li>
                                 <li>Hygienic & convenient - perfect for kitchens and bathrooms</li>
                             </ul>
                         </div>
@@ -529,7 +529,7 @@
                               class="w-full px-4 py-2 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white"></textarea>
                 </div>
                 
-                <button type="submit" class="w-full bg-primary hover:bg-primaryDark text-white font-medium py-3 px-6 rounded-lg transition duration-300">
+                <button type="submit" class="w-full bg-primary hover:bg-primaryDark text-black font-medium py-3 px-6 rounded-lg transition duration-300">
                     Send Message
                 </button>
             </form>
